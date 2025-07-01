@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-Up Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="image_container">
+      <img
+        id="background_img"
+        src="images/photo-1585202900225-6d3ac20a6962.avif"
+        alt="background"
+      />
+      <div class="overlay_text">
+        <img src="images/Green_Leaf_Transparent_PNG_Clip_Art_Image.png" />
+        <h1 id="leafy">Leafy's</h1>
+      </div>
+      <p id="credit">
+        Photo by
+        <a href="https://unsplash.com/@haliewestphoto">Halie West</a> on
+        <a href="https://unsplash.com">Unsplash</a>
+      </p>
+    </div>
+
+    <form action="logged_in.html">
+      <h2 id="blurb">
+        This is not a real online service! You know you need something like this
+        in your life to help you realize your deepest dreams. Sign up
+        <em>now</em> to get started. <br /><br />You <em>know</em> you want to.
+      </h2>
+      <h2>Let's do this!</h2>
+
+      <fieldset>
+        <label for="first_name">FIRST NAME</label>
+        <input type="text" id="first_name" required />
+        <label for="last_name">LAST NAME</label>
+        <input type="text" id="last_name" />
+      </fieldset>
+
+      <fieldset>
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" required />
+        <label for="phone_number">PHONE NUMBER</label>
+        <input type="tel" id="phone_number" />
+      </fieldset>
+
+      <fieldset>
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" name="password" required />
+        <label for="password_confirm">CONFIRM PASSWORD</label>
+        <input
+          type="password"
+          id="password_confirm"
+          name="password_confirm"
+          required
+        />
+      </fieldset>
+
+      <button type="submit">Create Account</button>
+      <h3 id="login">
+        Already have an account? <a href="login.html">Log in</a>
+      </h3>
+    </form>
+
+    <script>
+      const password1 = document.querySelector("#password");
+      const password2 = document.querySelector("#password_confirm");
+      const button = document.querySelector("button");
+
+      function checkPassword() {
+        if (password1.value != password2.value) {
+          password2.setCustomValidity("Passwords don't match");
+        } else {
+          password2.setCustomValidity("");
+        }
+      }
+
+      button.addEventListener("click", () => {
+        if (password1.value != password2.value) {
+          password1.classList.add("invalid");
+          password2.classList.add("invalid");
+        } else {
+          password1.classList.remove("invalid");
+          password2.classList.remove("invalid");
+        }
+      });
+      password.onchange = checkPassword;
+      password2.onkeyup = checkPassword;
+    </script>
+  </body>
+</html>
